@@ -268,6 +268,84 @@
       line-height: 1.75;
     }
 
+    .projects {
+      padding: 32px 0 72px;
+      border-top: 1px solid var(--line);
+    }
+
+    .projects-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 28px;
+    }
+
+    .projects-title { max-width: 650px; }
+
+    .projects-title h2 {
+      margin: 10px 0 0;
+      font-family: var(--serif);
+      font-size: 46px;
+      font-weight: 500;
+      line-height: 1.12;
+    }
+
+    .projects-title p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .repo-link, .project-source {
+      font-size: 13px;
+      font-weight: 600;
+      text-underline-offset: 4px;
+      white-space: nowrap;
+    }
+
+    .repo-link { margin-top: 5px; }
+
+    .project-list { border-top: 1px solid var(--line); }
+
+    .project-row {
+      min-height: 99px;
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr) 105px;
+      align-items: center;
+      gap: 18px;
+      padding: 17px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-index {
+      align-self: start;
+      padding-top: 4px;
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .project-info h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .project-info h3 a { text-decoration: none; }
+
+    .project-info h3 a:hover { color: var(--blue); }
+
+    .project-info p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .project-source { justify-self: end; }
+
     .site-footer {
       min-height: 76px;
       display: flex;
@@ -304,6 +382,16 @@
       .orbit-core { font-size: 63px; }
       .about { grid-template-columns: 1fr; gap: 21px; padding-block: 25px 48px; }
       .about-content h2 { font-size: 40px; }
+      .projects { padding-block: 25px 48px; }
+      .projects-heading { flex-direction: column; gap: 15px; }
+      .projects-title h2 { font-size: 40px; }
+      .project-row {
+        grid-template-columns: 34px minmax(0, 1fr);
+        align-items: start;
+        gap: 7px 14px;
+      }
+      .project-index { grid-row: span 2; }
+      .project-source { grid-column: 2; justify-self: start; }
     }
 
     @media (max-width: 390px) {
@@ -333,7 +421,7 @@
       </a>
       <nav class="site-nav" aria-label="Main navigation">
         <a href="#about">About</a>
-        <a href="#notes">A note</a>
+        <a href="#projects">Projects</a>
         <a href="https://github.com/joydhuang" target="_blank" rel="noreferrer">GitHub ↗</a>
       </nav>
     </header>
@@ -359,7 +447,52 @@
         <p class="section-label">01 / About</p>
         <div class="about-content">
           <h2 id="about-title">A work in progress,<br>by design.</h2>
-          <p id="notes">I'm building this space to bring my work, interests, and notes together in one place. More to come as I figure out what belongs here.</p>
+          <p>I'm building this space to bring my work, interests, and notes together in one place. More to come as I figure out what belongs here.</p>
+        </div>
+      </section>
+
+      <section class="projects" id="projects" aria-labelledby="projects-title">
+        <div class="projects-heading">
+          <div class="projects-title">
+            <p class="section-label">02 / DCS 340</p>
+            <h2 id="projects-title">Optimization demos</h2>
+            <p>A collection of Python examples exploring optimization and search.</p>
+          </div>
+          <a class="repo-link" href="https://github.com/joydhuang/DCS340" target="_blank" rel="noreferrer">View repository ↗</a>
+        </div>
+        <div class="project-list">
+          <article class="project-row">
+            <span class="project-index" aria-hidden="true">01</span>
+            <div class="project-info">
+              <h3><a href="https://github.com/joydhuang/DCS340/blob/main/bisection_demo.py" target="_blank" rel="noreferrer">Bisection method</a></h3>
+              <p>Find a root by repeatedly narrowing an interval around it.</p>
+            </div>
+            <a class="project-source" href="https://github.com/joydhuang/DCS340/blob/main/bisection_demo.py" target="_blank" rel="noreferrer">View source ↗</a>
+          </article>
+          <article class="project-row">
+            <span class="project-index" aria-hidden="true">02</span>
+            <div class="project-info">
+              <h3><a href="https://github.com/joydhuang/DCS340/blob/main/classic_opt_demo.py" target="_blank" rel="noreferrer">Classic optimization</a></h3>
+              <p>A step-by-step gradient-ascent example on a single-variable function.</p>
+            </div>
+            <a class="project-source" href="https://github.com/joydhuang/DCS340/blob/main/classic_opt_demo.py" target="_blank" rel="noreferrer">View source ↗</a>
+          </article>
+          <article class="project-row">
+            <span class="project-index" aria-hidden="true">03</span>
+            <div class="project-info">
+              <h3><a href="https://github.com/joydhuang/DCS340/blob/main/business_lp_demo.py" target="_blank" rel="noreferrer">Business linear program</a></h3>
+              <p>Optimize a furniture shop's table-and-chair mix under resource limits.</p>
+            </div>
+            <a class="project-source" href="https://github.com/joydhuang/DCS340/blob/main/business_lp_demo.py" target="_blank" rel="noreferrer">View source ↗</a>
+          </article>
+          <article class="project-row">
+            <span class="project-index" aria-hidden="true">04</span>
+            <div class="project-info">
+              <h3><a href="https://github.com/joydhuang/DCS340/blob/main/landscape_3d_demo.py" target="_blank" rel="noreferrer">3D landscape optimization</a></h3>
+              <p>Compare gradient ascent, random restarts, and grid search across multiple peaks.</p>
+            </div>
+            <a class="project-source" href="https://github.com/joydhuang/DCS340/blob/main/landscape_3d_demo.py" target="_blank" rel="noreferrer">View source ↗</a>
+          </article>
         </div>
       </section>
     </main>
