@@ -72,12 +72,20 @@
     }
 
     .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
       min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px 30px;
+      background: rgba(244, 243, 236, 0.92);
+      backdrop-filter: blur(6px);
       border-bottom: 1px solid var(--line);
     }
+
+    main section[id] { scroll-margin-top: 96px; }
 
     .wordmark {
       display: inline-flex;
@@ -405,6 +413,87 @@
 
     .project-source { justify-self: end; }
 
+    .resume, .contact {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 60px;
+      padding: 33px 0 68px;
+      border-top: 1px solid var(--line);
+    }
+
+    .resume-content, .contact-content { max-width: 650px; }
+
+    .resume-content h2, .contact-content h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(34px, 5vw, 56px);
+      font-weight: 500;
+      line-height: 1.12;
+    }
+
+    .resume-content > p, .contact-content > p {
+      max-width: 530px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .resume-list {
+      margin: 30px 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .resume-item {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 18px;
+      padding: 17px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .resume-item dt {
+      padding-top: 3px;
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .resume-item dd { margin: 0; }
+
+    .resume-item h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .resume-item .resume-sub { margin-top: 16px; }
+
+    .resume-item p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 30px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-links a {
+      font-size: 14px;
+      font-weight: 700;
+      text-underline-offset: 5px;
+    }
+
+    .contact-links a:hover { color: var(--blue); }
+
     .site-footer {
       min-height: 76px;
       display: flex;
@@ -448,8 +537,13 @@
 
     @media (max-width: 700px) {
       .page-shell { width: min(100% - 40px, 520px); }
-      .site-header { min-height: 70px; }
-      .site-nav { gap: 17px; }
+      .site-header {
+        min-height: 70px;
+        flex-wrap: wrap;
+        padding-block: 14px;
+      }
+      main section[id] { scroll-margin-top: 110px; }
+      .site-nav { flex-wrap: wrap; gap: 8px 17px; }
       .site-nav a { font-size: 12px; }
       .hero {
         min-height: auto;
@@ -464,6 +558,8 @@
       .about { grid-template-columns: 1fr; gap: 21px; padding-block: 25px 48px; }
       .about-content h2 { font-size: 40px; }
       .projects { padding-block: 25px 48px; }
+      .resume, .contact { grid-template-columns: 1fr; gap: 21px; padding-block: 25px 48px; }
+      .resume-item { grid-template-columns: 1fr; gap: 6px; }
       .projects-heading { flex-direction: column; gap: 15px; }
       .projects-title h2 { font-size: 40px; }
       .project-row {
@@ -506,6 +602,8 @@
       <nav class="site-nav" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
         <a href="https://github.com/joydhuang" target="_blank" rel="noreferrer">GitHub ↗</a>
       </nav>
     </header>
@@ -577,6 +675,69 @@
             </div>
             <a class="project-source" href="https://github.com/joydhuang/DCS340/blob/main/landscape_3d_demo.py" target="_blank" rel="noreferrer">View source ↗</a>
           </article>
+        </div>
+      </section>
+
+      <section class="resume" id="resume" aria-labelledby="resume-title">
+        <p class="section-label">03 / Resume</p>
+        <div class="resume-content">
+          <h2 id="resume-title">Resume</h2>
+          <p>The short version is below. For the full picture, grab the PDF.</p>
+          <a class="hero-link" href="resume.pdf" target="_blank" rel="noreferrer">Download resume (PDF) <span aria-hidden="true">↗</span></a>
+          <dl class="resume-list">
+            <div class="resume-item">
+              <dt>Education</dt>
+              <dd>
+                <h3>Bates College · B.A., expected May 2027</h3>
+                <p>Majors in Economics and Digital &amp; Computational Studies; minors in Mathematics and Asian Studies.</p>
+                <h3 class="resume-sub">University of Oxford, St. Catherine's College</h3>
+                <p>Visiting Student Programme in Economics and Management, 2025–2026.</p>
+              </dd>
+            </div>
+            <div class="resume-item">
+              <dt>Experience</dt>
+              <dd>
+                <h3>Inner Child · Operations &amp; E-Commerce Intern</h3>
+                <p>Chief-of-staff-style support for the founder of a home decor start-up: listing audits across 500+ products, wholesale and DTC order operations, and launches on new retail platforms.</p>
+                <h3 class="resume-sub">Bates DCS Program · Teaching Assistant</h3>
+                <p>Led weekly Python review sessions for a 30-student Intro to Computer Science class.</p>
+              </dd>
+            </div>
+            <div class="resume-item">
+              <dt>Leadership</dt>
+              <dd>
+                <h3>Vice President, Bates Consulting Club &amp; Bates Tea Club</h3>
+                <p>Ran case-prep presentations and industry panels; managed events and recruited 250+ new members for Bates' largest student-run club.</p>
+              </dd>
+            </div>
+            <div class="resume-item">
+              <dt>Honors</dt>
+              <dd>
+                <h3>ASA DataFest · Best Data Visualization</h3>
+                <p>Built interactive graphics in R and Python from a 190K-row commercial real estate dataset during a 48-hour hackathon.</p>
+              </dd>
+            </div>
+            <div class="resume-item">
+              <dt>Skills</dt>
+              <dd>
+                <h3>Python, R, SQL, Stata, JavaScript, HTML/CSS, LaTeX, Excel</h3>
+                <p>Mandarin Chinese (professional).</p>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <p class="section-label">04 / Contact</p>
+        <div class="contact-content">
+          <h2 id="contact-title">Say hello.</h2>
+          <p>Questions, ideas, or opportunities: I'd love to hear from you.</p>
+          <ul class="contact-links">
+            <li><a href="mailto:joydhuang@gmail.com">joydhuang@gmail.com</a></li>
+            <li><a href="https://www.linkedin.com/in/joydhuang/" target="_blank" rel="noreferrer">LinkedIn ↗</a></li>
+            <li><a href="https://github.com/joydhuang" target="_blank" rel="noreferrer">GitHub ↗</a></li>
+          </ul>
         </div>
       </section>
     </main>
